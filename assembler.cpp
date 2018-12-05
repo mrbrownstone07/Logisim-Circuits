@@ -380,6 +380,7 @@ void writeIntoFile(vector<string>outputData, string fileName){
     ofstream FILE(fileName+".mc.txt");
 
     if(FILE.is_open()){
+        FILE << "v2.0 raw" << "\n";
         for(unsigned i = 0; i < outputData.size(); i++){
             //std::cout << outputData[i] << "\n";
             FILE << outputData[i] << "\n";
@@ -480,7 +481,7 @@ bool promt(){
 }
 
 string binToHex(string bin){
-    string hex = "0x";
+    string hex = "";
     for(int i = 0; i < bin.length(); i+=4){
         string buffer = bin.substr(i, 4);
         hex += BIN_TO_HEX_MAP[buffer];
